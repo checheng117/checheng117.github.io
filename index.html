@@ -1,11 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Che CHENG - Personal Homepage</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", "Noto Sans SC", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2933;
+      background-color: #f7fafc;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logos img {
+      height: 70px;
+    }
+
+    h1 {
+      margin: 0.5rem 0 1rem;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.75rem;
+      color: #233876;
+    }
+
+    h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: #3d4c75;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 0 auto 1rem;
+      font-size: 1.05rem;
+    }
+
+    .tagline {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      color: #435060;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      background-color: #1a56db;
+      color: #ffffff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .button.secondary {
+      background-color: #475569;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
+    }
+
+    main {
+      padding: 0 1.5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      background-color: #ffffff;
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    section + section {
+      margin-top: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.5rem;
+    }
+
+    .music-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .music-list div {
+      background-color: #f1f5f9;
+      padding: 1rem;
+      border-radius: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, I am checheng117!</h1>
-  <p>Welcome to my homepage!</p>
+  <header class="hero">
+    <div class="logos">
+      <img src="cuhksz-logo.png" alt="CUHK(SZ) Logo">
+      <img src="ihear-logo.png" alt="iHear Lab Logo">
+    </div>
+    <h1>Che CHENG</h1>
+    <p class="intro">MPhil Candidate<br>in Computer and Information Engineering,<br>The Chinese University of Hong Kong, Shenzhen</a>.</p>
+    <p class="tagline">Exploring embodied AI for healthcare and intelligent 3D perception.</p>
+    <div class="actions">
+      <a class="button" href="mailto:checheng@link.cuhk.edu.cn">Email: checheng@link.cuhk.edu.cn</a>
+      <a class="button secondary" href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">Visit iHear Lab</a>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>About</h2>
+      <p>Hello! I'm Che Cheng, currently pursuing an MPhil in Computer and Information Engineering at the <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">School of Science and Engineering</a>, <a href="https://www.cuhk.edu.cn/en" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>. From 2021 to 2025, I studied Big Data Management and Application at Dalian Maritime University and completed a Software Engineering minor as part of a dual-degree program, earning Bachelor of Management and Bachelor of Engineering degrees.</p>
+      <p>I work under the supervision of <a href="https://fxzhong.github.io/" target="_blank" rel="noopener noreferrer">Prof. Fangxun Zhong</a> in the <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHear Lab</a>, where we investigate embodied AI for healthcare and learning-driven 3D reconstruction. I am passionate about building intelligent systems that translate robust perception into tangible impact.</p>
+    </section>
+
+    <section>
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Artificial Intelligence</li>
+        <li>Embodied AI in healthcare application</li>
+        <li>Learning-driven 3D reconstruction and perception</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>TensorFlow</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Music & Interests</h2>
+      <div class="music-list">
+        <div>
+          <h3>Hip-Hop / Trap</h3>
+          <p>Travis Scott, Juice WRLD, 21 Savage, Higher Brothers, Vinida Weng</p>
+        </div>
+        <div>
+          <h3>Pop</h3>
+          <p>Rihanna, Adele</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Copyright <span id="year"></span> Che CHENG. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
