@@ -3,217 +3,784 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Che CHENG - Personal Homepage</title>
+  <title>Che CHENG - Academic Homepage</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     :root {
-      color-scheme: light;
-      font-family: "Segoe UI", "Noto Sans SC", Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2933;
-      background-color: #f7fafc;
+      --title: #1f2937;
+      --text: #374151;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --line: #e5e7eb;
+      --bg: #ffffff;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.9;
     }
 
-    .hero {
-      text-align: center;
-      padding: 3rem 1.5rem 2rem;
-      background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: #1d4ed8; }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      backdrop-filter: blur(6px);
     }
 
-    .logos {
+    .topbar-inner {
+      height: 100%;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 1.5rem;
+      justify-content: space-between;
+      padding-left: 44px;
+      padding-right: 56px;
     }
 
-    .logos img {
-      height: 70px;
+    .site-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.01em;
     }
 
-    h1 {
-      margin: 0.5rem 0 1rem;
-      font-size: 2.5rem;
+    .menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 34px;
     }
 
-    h2 {
-      margin-top: 3rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.75rem;
-      color: #233876;
+    .menu-link {
+      position: relative;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+      padding: 6px 0;
     }
 
-    h3 {
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      color: #3d4c75;
+    .menu-link:hover,
+    .menu-link.active {
+      color: var(--accent);
     }
 
-    .intro {
-      max-width: 720px;
-      margin: 0 auto 1rem;
-      font-size: 1.05rem;
+    .menu-link.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -11px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
-    .tagline {
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      font-size: 1.05rem;
-      color: #435060;
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
     }
 
-    .actions {
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--title);
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 108px;
+      left: 44px;
+      width: 232px;
+      background: transparent;
+      text-align: left;
+    }
+
+    .avatar-wrap {
+      width: 100%;
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-bottom: 22px;
     }
 
-    .button {
-      background-color: #1a56db;
-      color: #ffffff;
-      padding: 0.6rem 1.4rem;
+    .avatar-placeholder {
+      width: 150px;
+      height: 150px;
       border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: #f1f5f9;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .sidebar-name {
+      font-size: 26px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--title);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-degree {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .sidebar-affiliation {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #4b5563;
+      margin-bottom: 22px;
+    }
+
+    .sidebar-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #4b5563;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .sidebar-meta span,
+    .sidebar-meta a,
+    .sidebar-link span {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+
+    .sidebar-meta a {
+      white-space: nowrap;
+    }
+
+    .sidebar-meta a:hover,
+    .sidebar-link:hover span {
+      color: var(--accent);
+    }
+
+    .meta-icon {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      opacity: 0.95;
+      filter: brightness(0) saturate(100%) invert(31%) sepia(11%) saturate(519%) hue-rotate(176deg) brightness(92%) contrast(89%);
+      transition: filter 0.2s ease;
+    }
+
+    .sidebar-links {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .sidebar-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 10px;
+      color: #4b5563;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.8;
     }
 
-    .button.secondary {
-      background-color: #475569;
+    .sidebar-link img {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      filter: brightness(0) saturate(100%) invert(31%) sepia(11%) saturate(519%) hue-rotate(176deg) brightness(92%) contrast(89%);
+      transition: filter 0.2s ease;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
+    .sidebar-link:hover {
+      color: var(--accent);
     }
 
-    main {
-      padding: 0 1.5rem 3rem;
-      max-width: 900px;
-      margin: 0 auto;
+    .sidebar-link:hover img,
+    .sidebar-meta a:hover + .meta-icon,
+    .meta-item:hover .meta-icon {
+      filter: brightness(0) saturate(100%) invert(30%) sepia(72%) saturate(2160%) hue-rotate(215deg) brightness(98%) contrast(91%);
+    }
+
+    .content {
+      margin-left: 332px;
+      padding-top: 108px;
+      padding-right: 56px;
+      max-width: 980px;
+      color: #4b5563;
     }
 
     section {
-      background-color: #ffffff;
-      border-radius: 18px;
-      padding: 2rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      margin-bottom: 44px;
+      scroll-margin-top: 94px;
     }
 
-    section + section {
-      margin-top: 1.5rem;
+    section h2 {
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: var(--title);
+      margin-top: 0;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
     }
 
-    ul {
-      padding-left: 1.2rem;
+    section p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #4b5563;
+      margin-bottom: 18px;
     }
 
-    li + li {
-      margin-top: 0.5rem;
-    }
+    section p:last-child { margin-bottom: 0; }
 
-    .music-list {
+    .news-list { list-style: disc; padding-left: 22px; }
+    .news-list li { margin-bottom: 10px; color: #4b5563; }
+    .news-list li:last-child { margin-bottom: 0; }
+    .news-date { font-weight: 600; color: var(--text); }
+
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 14px;
+      margin-top: 4px;
     }
 
-    .music-list div {
-      background-color: #f1f5f9;
-      padding: 1rem;
-      border-radius: 14px;
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      background: #fff;
+      box-shadow: none;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: #bfdbfe;
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 600;
+      color: var(--title);
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.75;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-link {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 1;
+      padding: 0.38rem 0.66rem;
+      border-radius: 6px;
+      color: #ffffff;
+      background: var(--accent);
+    }
+
+    .project-link:hover {
+      color: #ffffff;
+      background: #1d4ed8;
+    }
+
+    .tag {
+      font-size: 12px;
+      line-height: 1;
+      padding: 0.34rem 0.58rem;
+      border-radius: 999px;
+      color: #1e40af;
+      background: #eff6ff;
+      font-weight: 600;
+    }
+
+    .list-item {
+      border-bottom: 1px solid #edf2f7;
+      padding: 14px 0;
+    }
+
+    .list-item:last-child { border-bottom: none; }
+
+    .logo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .entity-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      flex: 0 0 42px;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .list-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--title);
+      margin-bottom: 4px;
+    }
+
+    .list-item-meta {
+      color: #4b5563;
+      font-size: 14px;
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+
+    .list-item-desc {
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .subsection-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--title);
+      margin: 2px 0 8px;
+    }
+
+    .award-list {
+      list-style: disc;
+      padding-left: 22px;
+      color: #4b5563;
+    }
+
+    .award-list li {
+      margin-bottom: 8px;
+      line-height: 1.8;
+      font-size: 15px;
     }
 
     footer {
-      text-align: center;
-      padding: 2rem 1rem 3rem;
-      font-size: 0.9rem;
-      color: #64748b;
+      margin-left: 332px;
+      max-width: 980px;
+      padding-right: 56px;
+      padding-bottom: 36px;
+      color: #94a3b8;
+      font-size: 13px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+    @media (max-width: 1199px) and (min-width: 900px) {
+      .topbar-inner {
+        padding-left: 28px;
+        padding-right: 36px;
       }
 
-      section {
-        padding: 1.5rem;
+      .sidebar {
+        left: 28px;
+        width: 200px;
       }
+
+      .content,
+      footer {
+        margin-left: 286px;
+        padding-right: 36px;
+      }
+
+      .menu { gap: 24px; }
+    }
+
+    @media (max-width: 899px) {
+      .topbar-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .menu {
+        position: fixed;
+        left: -100%;
+        top: 72px;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 14px 16px 18px;
+        transition: left 0.25s ease;
+      }
+
+      .menu.active { left: 0; }
+
+      .menu-link {
+        font-size: 15px;
+        padding: 8px 0;
+      }
+
+      .menu-link.active::after { bottom: 0; }
+
+      .hamburger { display: flex; }
+
+      .sidebar {
+        position: static;
+        width: auto;
+        left: auto;
+        top: auto;
+        padding: 92px 20px 0;
+      }
+
+      .avatar-wrap { justify-content: flex-start; }
+
+      .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        font-size: 34px;
+      }
+
+      .content,
+      footer {
+        margin-left: 0;
+        max-width: none;
+        padding: 24px 20px;
+      }
+
+      footer { padding-top: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .content,
+      footer,
+      .sidebar {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .sidebar-name { font-size: 24px; }
+      section h2 { font-size: 20px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 18px; min-height: auto; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="logos">
-      <img src="cuhksz-logo.png" alt="CUHK(SZ) Logo">
-      <img src="ihear-logo.png" alt="iHear Lab Logo">
-    </div>
-    <h1>Che CHENG</h1>
-    <p class="intro">MPhil Candidate<br>in Computer and Information Engineering,<br>The Chinese University of Hong Kong, Shenzhen</a>.</p>
-    <p class="tagline">Exploring embodied AI for healthcare and intelligent 3D perception.</p>
-    <div class="actions">
-      <a class="button" href="mailto:checheng@link.cuhk.edu.cn">Email: checheng@link.cuhk.edu.cn</a>
-      <a class="button secondary" href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">Visit iHEAR Lab</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#about" class="site-name">Che CHENG</a>
+      <ul class="menu" id="menu">
+        <li><a href="#about" class="menu-link">About</a></li>
+        <li><a href="#news" class="menu-link">News</a></li>
+        <li><a href="#research" class="menu-link">Research</a></li>
+        <li><a href="#projects" class="menu-link">Projects</a></li>
+        <li><a href="#experience" class="menu-link">Experience</a></li>
+        <li><a href="#education" class="menu-link">Education</a></li>
+        <li><a href="#awards" class="menu-link">Awards</a></li>
+        <li><a href="assets/cv/CV-程澈.pdf" class="menu-link" target="_blank" rel="noopener noreferrer">CV</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section>
+  <aside class="sidebar" aria-label="Personal sidebar">
+    <div class="avatar-wrap">
+      <div class="avatar-placeholder" aria-label="Avatar placeholder">CC</div>
+    </div>
+
+    <h1 class="sidebar-name">Che CHENG</h1>
+    <div class="sidebar-degree">MPhil Candidate</div>
+    <div class="sidebar-affiliation">
+      Computer and Information Engineering<br>
+      The Chinese University of Hong Kong, Shenzhen
+    </div>
+
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <img src="assets/icons/location.svg" alt="" class="meta-icon">
+        <span>Shenzhen, China</span>
+      </div>
+      <div class="meta-item">
+        <img src="assets/icons/mail.svg" alt="" class="meta-icon">
+        <a href="mailto:checheng@link.cuhk.edu.cn">checheng@link.cuhk.edu.cn</a>
+      </div>
+      <div class="meta-item">
+        <img src="assets/icons/building.svg" alt="" class="meta-icon">
+        <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>
+      </div>
+    </div>
+
+    <div class="sidebar-links" aria-label="Sidebar links">
+      <a class="sidebar-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <img src="assets/icons/linkedin.svg" alt="LinkedIn icon">
+        <span>LinkedIn</span>
+      </a>
+      <a class="sidebar-link" href="https://github.com/checheng117" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <img src="assets/icons/github.svg" alt="GitHub icon">
+        <span>GitHub</span>
+      </a>
+      <a class="sidebar-link" href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+        <img src="assets/icons/google-scholar.svg" alt="Google Scholar icon">
+        <span>Google Scholar</span>
+      </a>
+      <a class="sidebar-link" href="assets/cv/CV-程澈.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
+        <img src="assets/icons/cv.svg" alt="CV icon">
+        <span>CV</span>
+      </a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section id="about">
       <h2>About</h2>
-      <p>Hello! I'm Che Cheng, currently pursuing an MPhil in Computer and Information Engineering at the <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">School of Science and Engineering</a>, <a href="https://www.cuhk.edu.cn/en" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>. From 2021 to 2025, I studied Big Data Management and Application at Dalian Maritime University and completed a Software Engineering minor as part of a dual-degree program, earning Bachelor of Management and Bachelor of Engineering degrees.</p>
-      <p>I work under the supervision of <a href="https://fxzhong.github.io/" target="_blank" rel="noopener noreferrer">Prof. Fangxun Zhong</a> in the <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>, where we investigate embodied AI for healthcare and learning-driven 3D reconstruction. I am passionate about building intelligent systems that translate robust perception into tangible impact.</p>
+      <p>Hello! I'm Che Cheng, currently pursuing an MPhil in Computer and Information Engineering at <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>, and conducting research in the <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>.</p>
+      <p>My research focuses on vision-language-action (VLA) systems and learning-driven 3D computer vision for embodied intelligence. I am particularly interested in multimodal perception, depth and geometry learning, and safety-aware visual understanding and control for robotic systems.</p>
+      <p>I have hands-on experience with PyTorch, PyTorch3D, Python, C++, ONNX optimization, large model deployment, and modern AI development workflows.</p>
     </section>
 
-    <section>
-      <h2>Research Interests</h2>
-      <ul>
-        <li>Artificial Intelligence</li>
-        <li>Embodied AI in healthcare application</li>
-        <li>Learning-driven 3D reconstruction and perception</li>
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><span class="news-date">Now:</span> Updates will be added soon.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>Python</li>
-        <li>PyTorch</li>
-        <li>TensorFlow</li>
-      </ul>
+    <section id="research">
+      <h2>Research</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title">Multimodal Visual-Haptic Distillation for Interaction Perception</div>
+          <div class="project-desc">Built a teacher-student interaction perception framework that fuses image segmentation, optical flow, depth estimation, and geometric analysis to extract proxy signals such as proximity and reliability from videos, and distills them into a lightweight real-time model for contact-risk perception in complex scenes.</div>
+          <div class="project-tags">
+            <span class="tag">Multimodal Perception</span>
+            <span class="tag">Distillation</span>
+            <span class="tag">Interaction Understanding</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Physics-Grounded VLA System for High-Risk Embodied Control</div>
+          <div class="project-desc">Developed a vision-language-action system based on InternVL3.5-8B with dual-head outputs for both physical reasoning and control parameters, integrating SPD control matrix modeling, safety-constrained velocity correction, and a differentiable optimization safety layer for closed-loop embodied control.</div>
+          <div class="project-tags">
+            <span class="tag">VLA</span>
+            <span class="tag">Embodied Control</span>
+            <span class="tag">Safety Constraints</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Deep Learning Regression on AIS Shipping Data</div>
+          <div class="project-desc">Developed an LSTM+Attention regression model in PyTorch for predicting key shipping indicators, with large-scale AIS data preprocessing, anomaly handling, standardization, and feature engineering on over one million records.</div>
+          <div class="project-tags">
+            <span class="tag">LSTM</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">Data Mining</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section>
-      <h2>Music & Interests</h2>
-      <div class="music-list">
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title">CIE6004 Image Processing and Computer Vision</div>
+          <div class="project-desc">Course project placeholder for image processing and computer vision topics, including classical vision pipelines, feature extraction, filtering, segmentation, and learning-based visual analysis.</div>
+          <div class="project-tags">
+            <span class="tag">Image Processing</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Coursework</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">CSC6219 Reinforcement Learning</div>
+          <div class="project-desc">Course project placeholder for reinforcement learning, including value-based methods, policy optimization, environment interaction, and learning-based decision making.</div>
+          <div class="project-tags">
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Decision Making</span>
+            <span class="tag">Coursework</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">CSC5051 Natural Language Processing</div>
+          <div class="project-desc">Course project placeholder for natural language processing, including text representation, sequence modeling, transformer-based methods, and downstream language understanding tasks.</div>
+          <div class="project-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">Coursework</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <h3 class="subsection-title">Teaching</h3>
+      <div class="list-item">
+        <div class="list-item-title">Teaching Assistant</div>
+        <div class="list-item-meta">CSC006: Artificial Intelligence for Science and Engineering</div>
+        <div class="list-item-desc">The Chinese University of Hong Kong, Shenzhen · AY2025–2026, Term 2</div>
+      </div>
+
+      <h3 class="subsection-title">Intership</h3>
+      <div class="list-item logo-item">
+        <img src="assets/logos/zto.png" alt="ZTO logo" class="entity-logo">
         <div>
-          <h3>Hip-Hop / Trap</h3>
-          <p>Travis Scott, Juice WRLD, 21 Savage, Higher Brothers, Vinida Weng</p>
-        </div>
-        <div>
-          <h3>Pop</h3>
-          <p>Rihanna, Adele</p>
+          <div class="list-item-title">ZTO Express Co., Ltd.</div>
+          <div class="list-item-meta">Summer Project-Based Intership · 2023.07 – 2023.08</div>
         </div>
       </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="list-item logo-item">
+        <img src="assets/logos/cuhksz.png" alt="CUHK-Shenzhen logo" class="entity-logo">
+        <div>
+          <div class="list-item-title">The Chinese University of Hong Kong, Shenzhen</div>
+          <div class="list-item-meta">MPhil in Computer and Information Engineering · 2025.09 – 2027.06</div>
+          <div class="list-item-desc">Research at iHEAR Lab on 3D vision, surgical automation, embodied intelligence, multimodal learning, and robotic perception/control.</div>
+        </div>
+      </div>
+
+      <div class="list-item logo-item">
+        <img src="assets/logos/dmu.png" alt="Dalian Maritime University logo" class="entity-logo">
+        <div>
+          <div class="list-item-title">Dalian Maritime University</div>
+          <div class="list-item-meta">Bachelor of Management in Big Data Management and Application, with a minor in Software Engineering leading to a Bachelor of Engineering degree · 2021.09 – 2025.06</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2>Awards & Honors</h2>
+      <ul class="award-list">
+        <li>Second Prize, China Undergraduate Mathematical Contest in Modeling</li>
+        <li>Silver Award, “Internet+” Innovation and Entrepreneurship Competition (Liaoning Division)</li>
+        <li>Outstanding Graduate of Dalian</li>
+        <li>Outstanding Student Scholarship, Dalian Maritime University</li>
+        <li>Comprehensive Excellence Scholarship, Dalian Maritime University</li>
+        <li>Outstanding Student Leader / Merit Student / Outstanding League Member, Dalian Maritime University</li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    Copyright <span id="year"></span> Che CHENG. All rights reserved.
+    <p>&copy; <span id="year">2026</span> Che CHENG. All rights reserved.</p>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+    const menuLinks = document.querySelectorAll(".menu-link");
+
+    hamburger.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("active");
+      hamburger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      let current = "about";
+      const sections = document.querySelectorAll("main section[id]");
+      sections.forEach((section) => {
+        if (window.scrollY >= section.offsetTop - 120) {
+          current = section.id;
+        }
+      });
+
+      menuLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        link.classList.remove("active");
+        if (href && href.startsWith("#") && href.slice(1) === current) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
