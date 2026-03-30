@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <rect width="120" height="120" rx="16" fill="#ffffff"/>
-  <circle cx="60" cy="60" r="49" fill="#f8fbff" stroke="#2563eb" stroke-width="4"/>
-  <text x="60" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2937">ZTO</text>
-  <text x="60" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4b5563">Express</text>
-</svg>

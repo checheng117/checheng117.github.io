@@ -283,6 +283,37 @@
       margin-top: 4px;
     }
 
+    .section-subtitle {
+      margin-top: -6px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    #about .about-text {
+      max-width: 860px;
+    }
+
+    #about .about-text p {
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    #about .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    #projects .projects-grid.projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    #projects .projects-grid.projects-list .project-card {
+      min-height: auto;
+    }
+
     .project-card {
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -300,11 +331,24 @@
       transform: translateY(-2px);
     }
 
+    .project-card.featured {
+      border-color: #93c5fd;
+      background: #fbfdff;
+    }
+
     .project-title {
       font-size: 16px;
       line-height: 1.45;
       font-weight: 600;
       color: var(--title);
+      margin-bottom: 10px;
+    }
+
+    .project-positioning {
+      font-size: 13px;
+      line-height: 1.65;
+      font-weight: 600;
+      color: #475569;
       margin-bottom: 10px;
     }
 
@@ -314,6 +358,19 @@
       line-height: 1.75;
       margin-bottom: 14px;
       flex: 1;
+    }
+
+    .project-metrics {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid #eef2f7;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: -6px;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
     .project-tags {
@@ -341,6 +398,14 @@
     .project-link:hover {
       color: #ffffff;
       background: #1d4ed8;
+    }
+
+    .project-link.disabled,
+    .project-link[aria-disabled="true"] {
+      background: #e5e7eb;
+      color: #6b7280;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     .tag {
@@ -528,7 +593,7 @@
         <li><a href="#experience" class="menu-link">Experience</a></li>
         <li><a href="#education" class="menu-link">Education</a></li>
         <li><a href="#awards" class="menu-link">Awards</a></li>
-        <li><a href="assets/cv/CV-程澈.pdf" class="menu-link" target="_blank" rel="noopener noreferrer">CV</a></li>
+        <li><a href="assets/cv/CV_CheCHENG_Zh.pdf" class="menu-link" target="_blank" rel="noopener noreferrer">CV</a></li>
       </ul>
       <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
@@ -578,7 +643,7 @@
         <img src="assets/icons/google-scholar.svg" alt="Google Scholar icon">
         <span>Google Scholar</span>
       </a>
-      <a class="sidebar-link" href="assets/cv/CV-程澈.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
+      <a class="sidebar-link" href="assets/cv/CV_CheCHENG_Zh.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
         <img src="assets/icons/cv.svg" alt="CV icon">
         <span>CV</span>
       </a>
@@ -588,15 +653,16 @@
   <main class="content">
     <section id="about">
       <h2>About</h2>
-      <p>Hello! I'm Che Cheng, currently pursuing an MPhil in Computer and Information Engineering at <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>, and conducting research in the <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>.</p>
-      <p>My research focuses on vision-language-action (VLA) systems and learning-driven 3D computer vision for embodied intelligence. I am particularly interested in multimodal perception, depth and geometry learning, and safety-aware visual understanding and control for robotic systems.</p>
-      <p>I have hands-on experience with PyTorch, PyTorch3D, Python, C++, ONNX optimization, large model deployment, and modern AI development workflows.</p>
+      <div class="about-text">
+        <p>I am an MPhil student in Computer and Information Engineering at <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>, and a researcher at <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>, under the supervision of <a href="https://fxzhong.github.io/" target="_blank" rel="noopener noreferrer">Prof. Fangxun Zhong</a>. My work focuses on multimodal perception, 3D scene understanding, and vision-language-action systems for embodied intelligence, especially in safety-aware robotic perception and control.</p>
+        <p>I build research systems that connect perception, reasoning, and action, with experience spanning visual-haptic interaction perception, physics-grounded VLA control, GUI grounding, LLM post-training, and 3D structured spatial reasoning. My primary toolkit includes PyTorch, PyTorch3D, OpenCV, Open3D, PEFT/LoRA, and modern VLM/LLM training pipelines. I am actively seeking internship opportunities in VLA, VLM, multimodal foundation models, embodied AI, and reinforcement learning.</p>
+      </div>
     </section>
 
     <section id="news">
       <h2>News</h2>
       <ul class="news-list">
-        <li><span class="news-date">Now:</span> Updates will be added soon.</li>
+        <li><span class="news-date">Aug 2025:</span> Joined Prof. Fangxun Zhong’s iHEAR Lab and started research on 3D vision, surgical automation, and embodied intelligence. Looking forward to future collaborations and research outcomes.</li>
       </ul>
     </section>
 
@@ -612,7 +678,7 @@
             <span class="tag">Interaction Understanding</span>
           </div>
           <div class="project-links">
-            <a class="project-link" href="projects/coming-soon.html">Page</a>
+            <a class="project-link" href="projects/visual-haptic-distillation.html">Page</a>
           </div>
         </article>
 
@@ -625,7 +691,7 @@
             <span class="tag">Safety Constraints</span>
           </div>
           <div class="project-links">
-            <a class="project-link" href="projects/coming-soon.html">Page</a>
+            <a class="project-link" href="projects/physics-grounded-vla.html">Page</a>
           </div>
         </article>
 
@@ -633,44 +699,101 @@
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-title">CIE6004 Image Processing and Computer Vision</div>
-          <div class="project-desc">Course project placeholder for image processing and computer vision topics, including classical vision pipelines, feature extraction, filtering, segmentation, and learning-based visual analysis.</div>
-          <div class="project-tags">
-            <span class="tag">Image Processing</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Coursework</span>
+      <h2>Selected Projects</h2>
+      <p class="section-subtitle">Representative systems and research-oriented engineering projects across embodied AI, multimodal perception, LLM post-training, and 3D reasoning.</p>
+      <div class="projects-grid projects-list">
+        <article class="project-card featured">
+          <div class="project-title">EmbodiedSceneAgent: 3D-Aware Vision-Language Planning for Long-Horizon Manipulation</div>
+          <div class="project-positioning">A flagship embodied AI system that integrates scene memory, planning, verification, and replanning into a closed loop.</div>
+          <div class="project-desc">
+            Built a closed-loop embodied agent with scene memory, planner, skill executor, verifier, and replanner for long-horizon task execution.<br>
+            Used simulator teacher-state bootstrapping to stabilize high-level cognition first, then analyzed the gap between teacher-state and predicted memory.<br>
+            Evaluated the system on CALVIN, RLBench, and VLABench to study long-horizon success, subgoal completion, and recovery behavior.
           </div>
-          <div class="project-links">
-            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          <div class="project-metrics">Representative result: 52% long-horizon task success on a CALVIN representative subset with 3D memory + replanning, +17 pts over a 2D baseline.</div>
+          <div class="project-tags">
+            <span class="tag">VLA</span>
+            <span class="tag">Embodied AI</span>
+            <span class="tag">3D Scene Memory</span>
+            <span class="tag">Planning</span>
+            <span class="tag">Verification</span>
+            <span class="tag">Replanning</span>
+          </div>
+          <div class="project-links" aria-label="Project links">
+            <span class="project-link disabled" aria-disabled="true">Page · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Code · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Report · Coming Soon</span>
           </div>
         </article>
 
         <article class="project-card">
-          <div class="project-title">CSC6219 Reinforcement Learning</div>
-          <div class="project-desc">Course project placeholder for reinforcement learning, including value-based methods, policy optimization, environment interaction, and learning-based decision making.</div>
-          <div class="project-tags">
-            <span class="tag">Reinforcement Learning</span>
-            <span class="tag">Decision Making</span>
-            <span class="tag">Coursework</span>
+          <div class="project-title">Cross-Website GUI Grounding with Verifiable Reward Optimization</div>
+          <div class="project-positioning">A multimodal GUI grounding system for robust cross-website and cross-domain agent perception.</div>
+          <div class="project-desc">
+            Formulated GUI grounding as an instruction-conditioned multimodal perception problem from screenshot + instruction to target element, box, point, and action.<br>
+            Combined visual grounding with OCR / DOM candidate generation and reward-based reranking for better cross-website and cross-domain generalization.<br>
+            Designed a verifiable reward based on element correctness, IoU, click validity, action correctness, and format validity.
           </div>
-          <div class="project-links">
-            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          <div class="project-metrics">Representative result: 71% / 62% / 54% element accuracy on test_task / test_website / test_domain, with reranking bringing up to +8 pts gain.</div>
+          <div class="project-tags">
+            <span class="tag">VLM</span>
+            <span class="tag">GUI Agent</span>
+            <span class="tag">OCR</span>
+            <span class="tag">DOM</span>
+            <span class="tag">Grounding</span>
+            <span class="tag">Reward Reranking</span>
+          </div>
+          <div class="project-links" aria-label="Project links">
+            <span class="project-link disabled" aria-disabled="true">Page · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Code · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Slides · Coming Soon</span>
           </div>
         </article>
 
         <article class="project-card">
-          <div class="project-title">CSC5051 Natural Language Processing</div>
-          <div class="project-desc">Course project placeholder for natural language processing, including text representation, sequence modeling, transformer-based methods, and downstream language understanding tasks.</div>
-          <div class="project-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Transformers</span>
-            <span class="tag">Coursework</span>
+          <div class="project-title">Verifiable Code Generation Post-Training Pipeline for Open LLMs</div>
+          <div class="project-positioning">An end-to-end LLM post-training pipeline covering SFT, verifiable reward design, RL-style optimization, and execution-based evaluation.</div>
+          <div class="project-desc">
+            Built an end-to-end post-training pipeline for code generation with data preparation, SFT cold start, GRPO optimization, sandboxed execution, and unified evaluation.<br>
+            Designed verifiable rewards based on compile success, public test pass rate, format validity, and length constraints.<br>
+            Compared Base, Structured Base, SFT, and SFT+GRPO under a unified execution-based evaluation protocol.
           </div>
-          <div class="project-links">
-            <a class="project-link" href="projects/coming-soon.html">Page</a>
+          <div class="project-metrics">Representative result: 32% HumanEval Pass@1, 95% compile success, and +11% relative improvement from SFT to SFT+GRPO.</div>
+          <div class="project-tags">
+            <span class="tag">LLM Post-Training</span>
+            <span class="tag">SFT</span>
+            <span class="tag">GRPO</span>
+            <span class="tag">Reward Design</span>
+            <span class="tag">Code Generation</span>
+            <span class="tag">Evaluation</span>
+          </div>
+          <div class="project-links" aria-label="Project links">
+            <span class="project-link disabled" aria-disabled="true">Page · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Code · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Report · Coming Soon</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">3D Structured Spatial Reasoning for Embodied Perception</div>
+          <div class="project-positioning">A 3D perception bridge that connects object-centric scene representation with relation-aware language grounding.</div>
+          <div class="project-desc">
+            Built a structured 3D perception bridge from object-centric scene representation to relation-aware language grounding.<br>
+            Designed a pipeline with object set building, structured language parsing, soft anchor selection, relation scoring, and interpretable diagnostics.<br>
+            Focused on hard cases such as relation-heavy scenes, same-class clutter, anchor confusion, and paraphrase stability.
+          </div>
+          <div class="project-metrics">Representative result: 61% Acc@1 / 83% Acc@5, with structured parsing bringing +5 pts overall and +8 pts on relation-heavy subsets.</div>
+          <div class="project-tags">
+            <span class="tag">3D Vision</span>
+            <span class="tag">Spatial Reasoning</span>
+            <span class="tag">Referring Expression Grounding</span>
+            <span class="tag">Structured Parsing</span>
+            <span class="tag">Embodied Perception</span>
+          </div>
+          <div class="project-links" aria-label="Project links">
+            <span class="project-link disabled" aria-disabled="true">Page · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Code · Coming Soon</span>
+            <span class="project-link disabled" aria-disabled="true">Report · Coming Soon</span>
           </div>
         </article>
       </div>
