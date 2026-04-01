@@ -23,11 +23,12 @@
       background: var(--bg);
       color: var(--text);
       font-size: 15px;
-      line-height: 1.9;
+      line-height: 1.75;
     }
 
     a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
     a:hover { color: #1d4ed8; }
+    img { max-width: 100%; height: auto; }
 
     .topbar {
       position: fixed;
@@ -43,11 +44,28 @@
 
     .topbar-inner {
       height: 100%;
+      width: min(1880px, calc(100vw - 24px));
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-left: 44px;
-      padding-right: 56px;
+      padding-left: clamp(16px, 2.2vw, 36px);
+      padding-right: clamp(16px, 2.2vw, 36px);
+    }
+
+    .page-shell {
+      width: min(1880px, calc(100vw - 24px));
+      margin: 0 auto;
+      padding: 108px clamp(16px, 2.2vw, 36px) 34px;
+      display: grid;
+      grid-template-columns: clamp(230px, 21vw, 310px) minmax(0, 1fr);
+      gap: clamp(24px, 3vw, 56px);
+    }
+
+    .main-column {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .site-name {
@@ -104,19 +122,20 @@
     }
 
     .sidebar {
-      position: fixed;
+      position: sticky;
       top: 108px;
-      left: 44px;
-      width: 232px;
+      width: 100%;
       background: transparent;
       text-align: left;
+      align-self: start;
+      padding-top: 8px;
     }
 
     .avatar-wrap {
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
     }
 
     .avatar-placeholder {
@@ -145,21 +164,21 @@
       font-size: 15px;
       font-weight: 500;
       color: var(--muted);
-      margin-bottom: 8px;
-      line-height: 1.45;
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     .sidebar-affiliation {
       font-size: 14px;
-      line-height: 1.55;
+      line-height: 1.65;
       color: #4b5563;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
     }
 
     .sidebar-meta {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 0;
     }
 
@@ -203,10 +222,10 @@
     }
 
     .sidebar-links {
-      margin-top: 10px;
+      margin-top: 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       align-items: flex-start;
     }
 
@@ -238,21 +257,15 @@
       filter: brightness(0) saturate(100%) invert(30%) sepia(72%) saturate(2160%) hue-rotate(215deg) brightness(98%) contrast(91%);
     }
 
-    .content {
-      margin-left: 332px;
-      padding-top: 108px;
-      padding-right: 56px;
-      max-width: 980px;
-      color: #4b5563;
-    }
+    .content { margin: 0; padding: 0; max-width: none; color: #4b5563; }
 
     section {
-      margin-bottom: 44px;
+      margin-bottom: clamp(30px, 3vw, 46px);
       scroll-margin-top: 94px;
     }
 
     section h2 {
-      font-size: 22px;
+      font-size: clamp(20px, 1.2vw, 24px);
       line-height: 1.25;
       font-weight: 700;
       color: var(--title);
@@ -263,8 +276,8 @@
     }
 
     section p {
-      font-size: 15px;
-      line-height: 1.9;
+      font-size: clamp(14px, 0.2vw + 14px, 16px);
+      line-height: 1.8;
       color: #4b5563;
       margin-bottom: 18px;
     }
@@ -277,10 +290,10 @@
     .news-date { font-weight: 600; color: var(--text); }
 
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 14px;
-      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 8px;
     }
 
     .section-subtitle {
@@ -292,7 +305,7 @@
     }
 
     #about .about-text {
-      max-width: 860px;
+      max-width: min(1200px, 100%);
     }
 
     #about .about-text p {
@@ -304,24 +317,22 @@
       margin-bottom: 0;
     }
 
-    #projects .projects-grid.projects-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .projects-grid.projects-list {
+      gap: 18px;
     }
 
-    #projects .projects-grid.projects-list .project-card {
+    .projects-grid.projects-list .project-card {
       min-height: auto;
     }
 
     .project-card {
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 22px;
+      border-radius: 14px;
+      padding: 24px;
       background: #fff;
       box-shadow: none;
       transition: border-color 0.2s ease, transform 0.2s ease;
-      min-height: 260px;
+      min-height: auto;
       display: flex;
       flex-direction: column;
     }
@@ -337,11 +348,11 @@
     }
 
     .project-title {
-      font-size: 16px;
-      line-height: 1.45;
+      font-size: 18px;
+      line-height: 1.4;
       font-weight: 600;
       color: var(--title);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .project-positioning {
@@ -355,7 +366,7 @@
     .project-desc {
       font-size: 14px;
       color: #4b5563;
-      line-height: 1.75;
+      line-height: 1.8;
       margin-bottom: 14px;
       flex: 1;
     }
@@ -377,12 +388,15 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .project-links {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
+      row-gap: 8px;
+      margin-top: 2px;
     }
 
     .project-link {
@@ -409,13 +423,13 @@
     }
 
     .tag {
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1;
-      padding: 0.34rem 0.58rem;
+      padding: 0.3rem 0.52rem;
       border-radius: 999px;
-      color: #1e40af;
-      background: #eff6ff;
-      font-weight: 600;
+      color: #475569;
+      background: #f1f5f9;
+      font-weight: 500;
     }
 
     .list-item {
@@ -480,35 +494,19 @@
     }
 
     footer {
-      margin-left: 332px;
-      max-width: 980px;
-      padding-right: 56px;
-      padding-bottom: 36px;
+      margin: 0;
+      max-width: none;
+      padding: 8px 0 0;
       color: #94a3b8;
       font-size: 13px;
     }
 
     @media (max-width: 1199px) and (min-width: 900px) {
-      .topbar-inner {
-        padding-left: 28px;
-        padding-right: 36px;
-      }
-
-      .sidebar {
-        left: 28px;
-        width: 200px;
-      }
-
-      .content,
-      footer {
-        margin-left: 286px;
-        padding-right: 36px;
-      }
-
+      .page-shell { grid-template-columns: clamp(210px, 23vw, 270px) minmax(0, 1fr); }
       .menu { gap: 24px; }
     }
 
-    @media (max-width: 899px) {
+    @media (max-width: 1100px) {
       .topbar-inner {
         padding-left: 16px;
         padding-right: 16px;
@@ -533,20 +531,15 @@
 
       .menu-link {
         font-size: 15px;
-        padding: 8px 0;
+        padding: 10px 0;
       }
 
       .menu-link.active::after { bottom: 0; }
 
       .hamburger { display: flex; }
 
-      .sidebar {
-        position: static;
-        width: auto;
-        left: auto;
-        top: auto;
-        padding: 92px 20px 0;
-      }
+      .page-shell { grid-template-columns: 1fr; gap: 20px; padding: 92px 20px 24px; }
+      .sidebar { position: static; top: auto; width: 100%; align-self: stretch; padding-top: 0; }
 
       .avatar-wrap { justify-content: flex-start; }
 
@@ -556,28 +549,22 @@
         font-size: 34px;
       }
 
-      .content,
-      footer {
-        margin-left: 0;
-        max-width: none;
-        padding: 24px 20px;
-      }
-
-      footer { padding-top: 0; }
+      footer { padding-top: 4px; }
     }
 
     @media (max-width: 560px) {
-      .content,
-      footer,
-      .sidebar {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
+      .topbar-inner { width: calc(100vw - 12px); padding-left: 16px; padding-right: 16px; }
+      .page-shell { width: calc(100vw - 12px); padding: 92px 16px 20px; }
 
       .sidebar-name { font-size: 24px; }
       section h2 { font-size: 20px; }
-      .projects-grid { grid-template-columns: 1fr; }
       .project-card { padding: 18px; min-height: auto; }
+      .project-title { font-size: 17px; }
+      .project-links { gap: 7px; row-gap: 7px; }
+    }
+
+    @media (min-width: 1800px) {
+      #about .about-text { max-width: min(1320px, 100%); }
     }
   </style>
 </head>
@@ -603,59 +590,62 @@
     </div>
   </header>
 
-  <aside class="sidebar" aria-label="Personal sidebar">
-    <div class="avatar-wrap">
-      <div class="avatar-placeholder" aria-label="Avatar placeholder">CC</div>
-    </div>
-
-    <h1 class="sidebar-name">Che CHENG</h1>
-    <div class="sidebar-degree">MPhil Student</div>
-    <div class="sidebar-affiliation">
-      Computer and Information Engineering<br>
-      The Chinese University of Hong Kong, Shenzhen
-    </div>
-
-    <div class="sidebar-meta">
-      <div class="meta-item">
-        <img src="assets/icons/location.svg" alt="" class="meta-icon">
-        <span>Shenzhen, China</span>
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="Personal sidebar">
+      <div class="avatar-wrap">
+        <div class="avatar-placeholder" aria-label="Avatar placeholder">CC</div>
       </div>
-      <div class="meta-item">
-        <img src="assets/icons/mail.svg" alt="" class="meta-icon">
-        <a href="mailto:checheng@link.cuhk.edu.cn">checheng@link.cuhk.edu.cn</a>
-      </div>
-      <div class="meta-item">
-        <img src="assets/icons/building.svg" alt="" class="meta-icon">
-        <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>
-      </div>
-    </div>
 
-    <div class="sidebar-links" aria-label="Sidebar links">
-      <a class="sidebar-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <img src="assets/icons/linkedin.svg" alt="LinkedIn icon">
-        <span>LinkedIn</span>
-      </a>
-      <a class="sidebar-link" href="https://github.com/checheng117" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <img src="assets/icons/github.svg" alt="GitHub icon">
-        <span>GitHub</span>
-      </a>
-      <a class="sidebar-link" href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
-        <img src="assets/icons/google-scholar.svg" alt="Google Scholar icon">
-        <span>Google Scholar</span>
-      </a>
-      <a class="sidebar-link" href="assets/cv/CV_CheCHENG_Zh.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
-        <img src="assets/icons/cv.svg" alt="CV icon">
-        <span>CV</span>
-      </a>
-    </div>
-  </aside>
+      <h1 class="sidebar-name">Che CHENG</h1>
+      <div class="sidebar-degree">MPhil Student</div>
+      <div class="sidebar-affiliation">
+        Computer and Information Engineering<br>
+        The Chinese University of Hong Kong, Shenzhen
+      </div>
 
-  <main class="content">
+      <div class="sidebar-meta">
+        <div class="meta-item">
+          <img src="assets/icons/location.svg" alt="" class="meta-icon">
+          <span>Shenzhen, China</span>
+        </div>
+        <div class="meta-item">
+          <img src="assets/icons/mail.svg" alt="" class="meta-icon">
+          <a href="mailto:checheng@link.cuhk.edu.cn">checheng@link.cuhk.edu.cn</a>
+        </div>
+        <div class="meta-item">
+          <img src="assets/icons/building.svg" alt="" class="meta-icon">
+          <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>
+        </div>
+      </div>
+
+      <div class="sidebar-links" aria-label="Sidebar links">
+        <a class="sidebar-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn icon">
+          <span>LinkedIn</span>
+        </a>
+        <a class="sidebar-link" href="https://github.com/checheng117" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="assets/icons/github.svg" alt="GitHub icon">
+          <span>GitHub</span>
+        </a>
+        <a class="sidebar-link" href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+          <img src="assets/icons/google-scholar.svg" alt="Google Scholar icon">
+          <span>Google Scholar</span>
+        </a>
+        <a class="sidebar-link" href="assets/cv/CV_CheCHENG_Zh.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
+          <img src="assets/icons/cv.svg" alt="CV icon">
+          <span>CV</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <main class="content">
     <section id="about">
       <h2>About</h2>
       <div class="about-text">
-        <p>I am an MPhil student in Computer and Information Engineering at <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>, and a researcher at <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>, under the supervision of <a href="https://fxzhong.github.io/" target="_blank" rel="noopener noreferrer">Prof. Fangxun Zhong</a>. My work focuses on multimodal perception, 3D scene understanding, and vision-language-action systems for embodied intelligence, especially in safety-aware robotic perception and control.</p>
-        <p>I build research systems that connect perception, reasoning, and action, with experience spanning visual-haptic interaction perception, physics-grounded VLA control, GUI grounding, LLM post-training, and 3D structured spatial reasoning. My primary toolkit includes PyTorch, PyTorch3D, OpenCV, Open3D, PEFT/LoRA, and modern VLM/LLM training pipelines. I am actively seeking internship opportunities in VLA, VLM, multimodal foundation models, embodied AI, and reinforcement learning.</p>
+        <p>I am an MPhil student in Computer and Information Engineering at <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>, and a researcher at <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a> under the supervision of <a href="https://fxzhong.github.io/" target="_blank" rel="noopener noreferrer">Prof. Fangxun Zhong</a>. My work focuses on 3D vision, multimodal learning, and embodied intelligence, especially in settings where perception is incomplete, environments evolve over time, and decisions must remain reliable under uncertainty. I am particularly interested in safety-aware robotic perception and control, with an emphasis on multimodal perception, 3D scene understanding, and vision-language-action systems.</p>
+        <p>I build structured and verifiable multimodal systems that connect perception, reasoning, and action. My recent work spans visual-haptic interaction perception, physics-grounded VLA control, 3D structured spatial reasoning, GUI grounding, and LLM post-training. Across these projects, I care most about turning difficult problems into testable pipelines through structured modeling, clear failure analysis, and closed-loop evaluation. My primary toolkit includes PyTorch, PyTorch3D, OpenCV, Open3D, PEFT/LoRA, and modern VLM/LLM training pipelines.</p>
+        <p>I am actively seeking internship opportunities in VLA, VLM, multimodal foundation models, embodied AI, and reinforcement learning.</p>
       </div>
     </section>
 
@@ -668,7 +658,7 @@
 
     <section id="research">
       <h2>Research</h2>
-      <div class="projects-grid">
+      <div class="projects-grid projects-list">
         <article class="project-card">
           <div class="project-title">Multimodal Visual-Haptic Distillation for Interaction Perception</div>
           <div class="project-desc">Built a teacher-student interaction perception framework that fuses image segmentation, optical flow, depth estimation, and geometric analysis to extract proxy signals such as proximity and reliability from videos, and distills them into a lightweight real-time model for contact-risk perception in complex scenes.</div>
@@ -704,13 +694,8 @@
       <div class="projects-grid projects-list">
         <article class="project-card featured">
           <div class="project-title">EmbodiedSceneAgent: 3D-Aware Vision-Language Planning for Long-Horizon Manipulation</div>
-          <div class="project-positioning">A flagship embodied AI system that integrates scene memory, planning, verification, and replanning into a closed loop.</div>
-          <div class="project-desc">
-            Built a closed-loop embodied agent with scene memory, planner, skill executor, verifier, and replanner for long-horizon task execution.<br>
-            Used simulator teacher-state bootstrapping to stabilize high-level cognition first, then analyzed the gap between teacher-state and predicted memory.<br>
-            Evaluated the system on CALVIN, RLBench, and VLABench to study long-horizon success, subgoal completion, and recovery behavior.
-          </div>
-          <div class="project-metrics">Representative result: 52% long-horizon task success on a CALVIN representative subset with 3D memory + replanning, +17 pts over a 2D baseline.</div>
+          <div class="project-positioning">A 3D-aware embodied agent for long-horizon manipulation, designed to improve task recovery under dynamic scene changes and partial observations.</div>
+          <div class="project-desc">Long-horizon embodied tasks often fail because scene state changes over time, observations are incomplete, and high-level plans cannot reliably recover from execution errors. This project studies how object-centric 3D scene memory can support planning, verification, and replanning in a closed loop. I built a modular pipeline with scene memory, planner, skill executor, verifier, and replanner, first bootstrapped with simulator teacher-state memory to stabilize high-level cognition, then used comparative evaluations to analyze the gap between teacher-state and predicted memory. The system is evaluated on CALVIN, RLBench, and VLABench to examine long-horizon success, subgoal completion, and recovery behavior.</div>
           <div class="project-tags">
             <span class="tag">VLA</span>
             <span class="tag">Embodied AI</span>
@@ -728,13 +713,8 @@
 
         <article class="project-card">
           <div class="project-title">Cross-Website GUI Grounding with Verifiable Reward Optimization</div>
-          <div class="project-positioning">A multimodal GUI grounding system for robust cross-website and cross-domain agent perception.</div>
-          <div class="project-desc">
-            Formulated GUI grounding as an instruction-conditioned multimodal perception problem from screenshot + instruction to target element, box, point, and action.<br>
-            Combined visual grounding with OCR / DOM candidate generation and reward-based reranking for better cross-website and cross-domain generalization.<br>
-            Designed a verifiable reward based on element correctness, IoU, click validity, action correctness, and format validity.
-          </div>
-          <div class="project-metrics">Representative result: 71% / 62% / 54% element accuracy on test_task / test_website / test_domain, with reranking bringing up to +8 pts gain.</div>
+          <div class="project-positioning">A multimodal GUI grounding system that improves cross-website and cross-domain robustness through candidate generation and verifiable reranking.</div>
+          <div class="project-desc">GUI agents often break when grounding models overfit to specific layouts, websites, or interface styles, making it hard to transfer from seen environments to new ones. This project formulates GUI grounding as an instruction-conditioned perception problem from screenshot and instruction to target element, bounding box, click point, and action type. To address cross-website variation, I combined visual grounding with OCR and DOM-based candidate generation, then introduced verifiable reward signals such as element correctness, IoU, click validity, and action-type correctness to rerank candidates more reliably. The project focuses on making the perception layer more stable and more generalizable before moving to longer agent chains.</div>
           <div class="project-tags">
             <span class="tag">VLM</span>
             <span class="tag">GUI Agent</span>
@@ -752,13 +732,8 @@
 
         <article class="project-card">
           <div class="project-title">Verifiable Code Generation Post-Training Pipeline for Open LLMs</div>
-          <div class="project-positioning">An end-to-end LLM post-training pipeline covering SFT, verifiable reward design, RL-style optimization, and execution-based evaluation.</div>
-          <div class="project-desc">
-            Built an end-to-end post-training pipeline for code generation with data preparation, SFT cold start, GRPO optimization, sandboxed execution, and unified evaluation.<br>
-            Designed verifiable rewards based on compile success, public test pass rate, format validity, and length constraints.<br>
-            Compared Base, Structured Base, SFT, and SFT+GRPO under a unified execution-based evaluation protocol.
-          </div>
-          <div class="project-metrics">Representative result: 32% HumanEval Pass@1, 95% compile success, and +11% relative improvement from SFT to SFT+GRPO.</div>
+          <div class="project-positioning">An end-to-end post-training pipeline for code LLMs, covering supervised warm start, verifiable reward design, RL-style optimization, and execution-based evaluation.</div>
+          <div class="project-desc">Code generation quality is not just a language modeling problem: outputs also need to compile, satisfy tests, follow format constraints, and remain stable under evaluation. This project builds a full post-training pipeline around that challenge, from data preparation and SFT cold start to GRPO-based optimization and sandboxed execution. I designed verifiable rewards based on compile success, public test pass rate, and output validity, and used a unified execution-based protocol to compare Base, Structured Base, SFT, and SFT+GRPO settings. The goal is not only to improve benchmark scores, but to turn post-training into a reproducible engineering workflow with clear feedback signals and systematic error analysis.</div>
           <div class="project-tags">
             <span class="tag">LLM Post-Training</span>
             <span class="tag">SFT</span>
@@ -776,13 +751,8 @@
 
         <article class="project-card">
           <div class="project-title">3D Structured Spatial Reasoning for Embodied Perception</div>
-          <div class="project-positioning">A 3D perception bridge that connects object-centric scene representation with relation-aware language grounding.</div>
-          <div class="project-desc">
-            Built a structured 3D perception bridge from object-centric scene representation to relation-aware language grounding.<br>
-            Designed a pipeline with object set building, structured language parsing, soft anchor selection, relation scoring, and interpretable diagnostics.<br>
-            Focused on hard cases such as relation-heavy scenes, same-class clutter, anchor confusion, and paraphrase stability.
-          </div>
-          <div class="project-metrics">Representative result: 61% Acc@1 / 83% Acc@5, with structured parsing bringing +5 pts overall and +8 pts on relation-heavy subsets.</div>
+          <div class="project-positioning">A structured 3D perception module that bridges object-centric scene representation and relation-aware language grounding for embodied systems.</div>
+          <div class="project-desc">Embodied agents often struggle in relation-heavy scenes where language refers to anchors, spatial structure, and fine-grained object relations rather than isolated categories. This project addresses that gap by turning 3D grounding into a structured perception problem instead of a purely end-to-end matching task. I built a pipeline with object set construction, structured language parsing, soft anchor selection, relation scoring, and interpretable diagnostics, with a particular focus on hard cases such as same-class clutter, anchor confusion, and paraphrase variation. The resulting module is designed as a perception bridge that can provide downstream planners with more explicit and more diagnosable spatial reasoning signals.</div>
           <div class="project-tags">
             <span class="tag">3D Vision</span>
             <span class="tag">Spatial Reasoning</span>
@@ -850,11 +820,13 @@
         <li>Outstanding Student Leader / Merit Student / Outstanding League Member, Dalian Maritime University</li>
       </ul>
     </section>
-  </main>
+      </main>
 
-  <footer>
-    <p>&copy; <span id="year">2026</span> Che CHENG. All rights reserved.</p>
-  </footer>
+      <footer>
+        <p>&copy; <span id="year">2026</span> Che CHENG. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
