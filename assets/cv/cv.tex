@@ -1,0 +1,263 @@
+%------------------------
+% English CV for Che CHENG
+% Adapted from the COS Northeastern University Faculty LaTeX CV template
+% Original template author: Zoe Kearney
+% License: LaTeX Project Public License 1.3c
+%------------------------
+
+\documentclass[a4paper,9pt]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=0.68in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\definecolor{linkblue}{HTML}{1F5FBF}
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue}
+\urlstyle{same}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=1.15em,itemsep=1pt,topsep=2pt,parsep=0pt}
+\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{0.72\baselineskip}{0.38\baselineskip}
+
+\newcommand{\role}[4]{%
+  \textbf{#1}\hfill #2\\
+  \textit{#3}\\
+  \if\relax\detokenize{#4}\relax\else #4\fi
+  \vspace{0.35\baselineskip}
+}
+
+\newcommand{\project}[4]{%
+  \textbf{#1}\hfill \href{#4}{GitHub}\\
+  #2\\
+  \textit{Keywords: #3}
+  \vspace{0.42\baselineskip}
+}
+
+\begin{document}
+\small
+
+\begin{center}
+  {\Large\textbf{Che CHENG}}\\[3pt]
+  MPhil Student, Computer and Information Engineering\\
+  The Chinese University of Hong Kong, Shenzhen\\[2pt]
+  Shenzhen, China \,|\, \href{mailto:checheng@link.cuhk.edu.cn}{checheng@link.cuhk.edu.cn}
+  \,|\, \href{https://checheng117.github.io/}{Homepage}
+  \,|\, \href{https://github.com/checheng117}{GitHub}
+\end{center}
+
+\section*{Profile}
+\textbf{PhD-seeking MPhil student in embodied AI, robotic perception, and multimodal learning.}
+My work focuses on structured 3D grounding, temporal interaction understanding, and
+geometry-aware multimodal perception. I am interested in building reliable
+perception-to-decision interfaces that expose intermediate state, uncertainty, and
+diagnostic signals for embodied systems operating under occlusion, changing scene
+state, and limited supervision.
+
+\section*{Education}
+\role
+{The Chinese University of Hong Kong, Shenzhen}
+{2025.09--2027.06}
+{MPhil in Computer and Information Engineering}
+{Research at iHEAR Lab on 3D vision, surgical automation, embodied intelligence,
+multimodal learning, and robotic perception/control. Advisor:
+\href{https://fxzhong.github.io/}{Prof. Fangxun Zhong}.}
+
+\role
+{Dalian Maritime University}
+{2021.09--2025.06}
+{Bachelor of Management in Big Data Management and Application}
+{Minor in Software Engineering leading to a Bachelor of Engineering degree.}
+
+\section*{Research Agenda}
+\begin{itemize}
+  \item \textbf{Structured 3D Grounding:} grounding objects, regions, spatial relations,
+  and task context into structured representations for embodied perception.
+  \item \textbf{Temporal Interaction Understanding:} modeling how agent-scene
+  relationships evolve in dynamic, partially observable, and visually ambiguous scenes.
+  \item \textbf{Reliable Embodied Decision Interfaces:} designing intermediate
+  representations and evaluation protocols that make perception-driven decisions easier
+  to inspect, diagnose, and improve.
+\end{itemize}
+
+\section*{Selected Open-Source Projects}
+\textbf{Spatial Prism: Relation-Aware 3D Grounding for Embodied Perception}
+\hfill \href{https://github.com/checheng117/relation-aware-3d-grounding}{GitHub}\\
+\begin{itemize}
+  \item Built a reproducible diagnostic project for relation-aware 3D visual
+  grounding with scene-disjoint Nr3D/ReferIt3D-style evaluation, hard-subset
+  analysis, coverage diagnostics, and controlled relation-scoring ablations.
+  \item Preserved claim boundaries in the public report: reproduced baseline
+  Acc@1/Acc@5, analyzed same-class clutter and high-clutter subsets, and reported
+  controlled ablations without making state-of-the-art claims.
+  \item Public artifacts include a course report, reproducibility notes, evidence map,
+  diagnostic summaries, coverage reports, and aggregate tables; the README reports a
+  4,255-sample scene-disjoint baseline and protocol-specific hard-subset diagnostics.
+  \item The public summary separates reproduced baselines, frozen-logit diagnostics,
+  trained controlled ablations, pilots, and negative findings to keep evidence levels
+  auditable.
+\end{itemize}
+\textit{Keywords: 3D grounding; relation reasoning; embodied perception; diagnostics}
+\vspace{0.34\baselineskip}
+
+\textbf{RGB-D Spatial Grounding and Risk-Aware Robot Perception}
+\hfill \href{https://github.com/checheng117/rgbd-spatial-grounding}{GitHub}\\
+\begin{itemize}
+  \item Implemented a real-time RGB-D pipeline for instance segmentation, target
+  locking, 3D localization, point-cloud processing, object tracking, and
+  nearest-distance risk estimation.
+  \item Organized configurable scripts for Orbbec RGB-D capture, YOLO/SAM2-based
+  segmentation, depth back-projection, mask alignment, offline sequence processing,
+  and visualization reports with JSON metadata.
+  \item The repository separates perception, risk estimation, calibration, utilities,
+  control, tests, and configuration files; recorded sequences include RGB frames,
+  depth frames, masks, camera intrinsics, and per-frame target-state records.
+\end{itemize}
+\textit{Keywords: RGB-D; point clouds; robot perception; risk estimation}
+\vspace{0.34\baselineskip}
+
+\textbf{EmbodiedSceneAgent: Structured Scene Memory and Replanning for Embodied Tasks}
+\hfill \href{https://github.com/checheng117/EmbodiedSceneAgent}{GitHub}\\
+\begin{itemize}
+  \item Built a closed-loop embodied cognition codebase around observation, scene
+  memory, planning, execution, verification, and replanning under changing scene
+  state.
+  \item Implemented structured planner contracts, parser/repair/validation stages,
+  semantic acceptance filters, repeated-no-effect guards, and reproducible smoke
+  and minimal-evaluation scripts.
+  \item Public results report a 73-case diagnostic comparison with improvements in
+  tool-use accuracy, target-match rate, and strict task proxy; the repository
+  explicitly separates proxy metrics from official environment success rates.
+  \item Public documentation includes project overview, showcase cases, limitations,
+  architecture diagrams, setup scripts, and minimal verification commands for
+  reproducing the smoke-test path.
+  \item The README reports accepted revised-plan comparisons on a small controlled
+  set while explicitly treating those cases as diagnostic rather than benchmark-scale
+  generalization evidence.
+\end{itemize}
+\textit{Keywords: embodied agents; scene memory; verification; replanning}
+\vspace{0.34\baselineskip}
+
+\textbf{OpenGUI-RL: Verifiable GUI Grounding for Computer-Use Agents}
+\hfill \href{https://github.com/checheng117/OpenGUI-RL}{GitHub}\\
+\begin{itemize}
+  \item Formulated instruction-conditioned GUI grounding as a scoped one-step
+  contextual-bandit decision from screenshot and instruction to target element,
+  click point, bounding box, and action type.
+  \item Implemented candidate-aware supervised grounding, deterministic reward
+  scoring, reward-labeled candidate generation, reranking analysis, and held-out
+  transfer evaluation across Mind2Web, ScreenSpot-v2, and VisualWebBench.
+  \item The public repository frames results as scoped benchmark evidence for GUI
+  grounding, not as a claim about full browser automation or long-horizon agents.
+  \item Public artifacts include quantitative summaries, tables, figures, data-format
+  examples, reproduction notes, and explicit limitations on dataset redistribution,
+  candidate protocols, and single-step evaluation scope.
+  \item The public result summary highlights OCR/DOM candidate semantics, conditional
+  reranking headroom, point-native transfer, and protocol sensitivity across GUI
+  grounding benchmarks.
+\end{itemize}
+\textit{Keywords: GUI grounding; verifiable reward; computer-use agents; reranking}
+\vspace{0.34\baselineskip}
+
+\textbf{Verifiable Code Generation Post-Training for Open LLMs}
+\hfill \href{https://github.com/checheng117/Verifiable-Code-Generation-Post-Training-Pipeline-for-Open-LLMs}{GitHub}\\
+\begin{itemize}
+  \item Developed an auditable post-training pipeline for verifiable code generation,
+  centered on MBPP supervised fine-tuning, clean-view data construction, execution-
+  based evaluation, and HumanEval external checking.
+  \item Preserved frozen configs, run-stamped artifacts, data-card notes, non-
+  fine-tuning baselines, training-cost audits, peak GPU memory audits, and a bounded
+  GRPO exploration that is clearly separated from the main SFT-centered conclusion.
+  \item Public archived runs include MBPP and HumanEval evaluation artifacts, clean-view
+  SFT result rows, baseline comparisons, data preprocessing scripts, sandboxed
+  execution checks, and assignment-facing frozen configuration files.
+  \item The repository documents data licensing, processed split sizes, parser/evaluator
+  risks, catastrophic-forgetting sanity checks, training-cost audits, and peak-memory
+  profiling for the promoted runs.
+\end{itemize}
+\textit{Keywords: LLM post-training; code generation; SFT; execution-based evaluation}
+\vspace{0.34\baselineskip}
+
+\section*{Ongoing Research}
+\begin{itemize}
+  \item \textbf{Temporal interaction understanding in visually complex scenes:}
+  studying how visual and motion cues can support reliable interpretation of
+  fine-grained interactions under occlusion, ambiguity, and changing scene state.
+  \item \textbf{Geometry-aware multimodal grounding for embodied perception:}
+  exploring how task context, visual evidence, spatial structure, and uncertainty can
+  support interpretable intermediate representations for reliable decision-making.
+\end{itemize}
+\textit{Technical details are limited until public manuscripts or preprints are available.}
+
+\section*{Experience}
+\textbf{Alibaba.com / Alibaba International Station}\hfill 2026.05--2026.09\\
+\textit{AI Application Development Engineer Intern}
+\vspace{0.35\baselineskip}
+
+\textbf{ZTO Express Co., Ltd.}\hfill 2023.06--2023.09\\
+\textit{Project-Based Intern}
+\begin{itemize}
+  \item Worked on operational data analysis for cross-belt sorting equipment, focusing
+  on delayed fault recognition, load fluctuation, resource dispatching, and peak-period
+  scheduling support.
+  \item Used NumPy, Pandas, K-Means, ARIMA, and Hadoop-based workflows for data
+  cleaning, anomaly detection, fault-pattern recognition, load forecasting, and
+  peak-flow analysis; proposed a dynamic allocation strategy for tidal sorting chutes.
+  \item Cleaned 10k+ equipment-operation records with an approximately 89\% cleaning
+  rate; the project report recorded a 23\% sorting-efficiency improvement and about
+  89\% peak-load forecasting accuracy.
+  \item The resulting solution was later deployed at ZTO's Chongqing sorting center to
+  support peak-period equipment-load forecasting and scheduling optimization.
+\end{itemize}
+
+\section*{Teaching}
+\role
+{Teaching Assistant}
+{AY2025--2026, Term 2}
+{CSC1006: Artificial Intelligence for Science and Engineering}
+{The Chinese University of Hong Kong, Shenzhen.}
+
+\section*{Technical Skills}
+\begin{itemize}
+  \item \textbf{Multimodal and agent systems:} VLMs, GUI agents, OCR/DOM grounding,
+  structured spatial reasoning, grounded decision interfaces.
+  \item \textbf{Embodied perception:} RGB-D perception, 3D scene memory, point-cloud
+  processing, long-horizon planning, verification, replanning, failure analysis.
+  \item \textbf{Training and evaluation:} PyTorch, PyTorch3D, OpenCV, Open3D,
+  Transformers, PEFT/LoRA, instruction fine-tuning, reward-based reranking,
+  reproducible evaluation pipelines.
+  \item \textbf{Programming and data tooling:} Python-based research engineering,
+  NumPy, Pandas, structured configuration, command-line experiment scripts,
+  repository documentation, and LaTeX-based technical writing.
+  \item \textbf{Vision and geometry workflows:} segmentation output integration,
+  depth back-projection, point-cloud filtering, object-centric state tracking,
+  spatial-distance computation, and qualitative visualization for debugging.
+  \item \textbf{Experiment management:} smoke tests, ablation settings, saved run
+  artifacts, error summaries, report tables, and reproducibility notes for public
+  research-engineering repositories.
+\end{itemize}
+
+\section*{Awards and Honors}
+\begin{itemize}
+  \item Second Prize, China Undergraduate Mathematical Contest in Modeling, 2023.
+  \item Silver Award, ``Internet+'' Innovation and Entrepreneurship Competition
+  (Liaoning Division), 2023.
+  \item Outstanding Graduate of Dalian City, 2025.
+  \item Outstanding Student Scholarship and Comprehensive Excellence Scholarship,
+  Dalian Maritime University, 2023 and 2024.
+  \item Outstanding Student Leader / Merit Student / Outstanding League Member,
+  Dalian Maritime University.
+\end{itemize}
+
+\section*{Last Updated}
+May 2026.
+
+\end{document}
