@@ -373,7 +373,7 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -660,6 +660,10 @@
         grid-template-columns: 1fr;
         gap: 24px;
         padding: 92px 0 28px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
       }
 
       .sidebar {
@@ -960,14 +964,6 @@
         <section id="experience">
           <h2>Experience</h2>
           <h3 class="subsection-title">Industry</h3>
-          <div class="list-item logo-item">
-            <img src="assets/logos/alibaba.png" alt="Alibaba.com logo" class="entity-logo">
-            <div>
-              <div class="list-item-title">Alibaba.com</div>
-              <div class="list-item-meta">AI Application Development Engineer Intern · 2026.05 – 2026.09</div>
-            </div>
-          </div>
-
           <div class="list-item logo-item">
             <img src="assets/logos/zto.png" alt="ZTO Express logo" class="entity-logo">
             <div>
