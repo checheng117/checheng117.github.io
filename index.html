@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Che Cheng | Homepage</title>
-  <meta name="description" content="Che Cheng is an MPhil student at CUHK-Shenzhen working on Physical AI, embodied intelligence, world models, 3D grounding, and multimodal foundation models.">
+  <meta name="description" content="Personal homepage of Che Cheng, MPhil student at CUHK-Shenzhen, working on embodied AI, multimodal learning, 3D vision, and robot perception.">
   <meta name="author" content="Che CHENG">
   <link rel="canonical" href="https://checheng117.github.io/">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-  <meta property="og:title" content="Che Cheng | Physical AI and Embodied Intelligence">
-  <meta property="og:description" content="Che Cheng is an MPhil student at CUHK-Shenzhen working on Physical AI, embodied intelligence, world models, 3D grounding, and multimodal foundation models.">
+  <meta property="og:title" content="Che Cheng | Homepage">
+  <meta property="og:description" content="Personal homepage of Che Cheng, MPhil student at CUHK-Shenzhen, working on embodied AI, multimodal learning, 3D vision, and robot perception.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://checheng117.github.io/">
   <meta property="og:site_name" content="Che CHENG">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Che Cheng | Physical AI and Embodied Intelligence">
-  <meta name="twitter:description" content="Che Cheng is an MPhil student at CUHK-Shenzhen working on Physical AI, embodied intelligence, world models, 3D grounding, and multimodal foundation models.">
+  <meta name="twitter:title" content="Che Cheng | Homepage">
+  <meta name="twitter:description" content="Personal homepage of Che Cheng, MPhil student at CUHK-Shenzhen, working on embodied AI, multimodal learning, 3D vision, and robot perception.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -395,6 +395,78 @@
       max-width: 820px;
     }
 
+    .keyword-line {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .publication-list,
+    .simple-project-list {
+      border-top: 1px solid #edf2f7;
+    }
+
+    .publication-item,
+    .simple-project-item {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .simple-project-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .publication-year {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 650;
+    }
+
+    .publication-title,
+    .simple-project-title {
+      color: var(--title);
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .publication-status {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .publication-desc,
+    .simple-project-desc {
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.76;
+      margin-bottom: 8px;
+    }
+
+    .inline-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 2px;
+    }
+
+    .inline-link {
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 650;
+    }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -430,7 +502,6 @@
 
     .project-card:hover {
       border-color: #bfdbfe;
-      transform: translateY(-1px);
     }
 
     .project-card.featured {
@@ -747,6 +818,10 @@
       .project-title { font-size: 17px; }
       .project-links { gap: 7px; row-gap: 7px; }
       .logo-item { gap: 12px; }
+      .publication-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
     }
   </style>
 </head>
@@ -756,10 +831,10 @@
       <a href="#about" class="site-name">Che CHENG</a>
       <ul class="menu" id="menu">
         <li><a href="#about" class="menu-link">About</a></li>
-        <li><a href="#agenda" class="menu-link">Research</a></li>
-        <li><a href="#manuscripts" class="menu-link">Manuscripts</a></li>
+        <li><a href="#research" class="menu-link">Research</a></li>
+        <li><a href="#publications" class="menu-link">Publications</a></li>
         <li><a href="#projects" class="menu-link">Projects</a></li>
-        <li><a href="#experience" class="menu-link">Experience</a></li>
+        <li><a href="#teaching" class="menu-link">Teaching</a></li>
         <li><a href="#education" class="menu-link">Education</a></li>
       </ul>
       <button class="hamburger" id="hamburger" type="button" aria-label="Toggle menu" aria-controls="menu" aria-expanded="false">
@@ -772,23 +847,16 @@
 
   <div class="page-shell">
     <aside class="sidebar" aria-label="Personal sidebar">
-      <div class="avatar-wrap">
-        <div class="avatar-placeholder" aria-label="Avatar placeholder">CC</div>
-      </div>
-
       <h1 class="sidebar-name">Che CHENG</h1>
       <div class="sidebar-degree">MPhil Student</div>
-      <div class="sidebar-status">Seeking PhD Opportunities</div>
-      <div class="sidebar-status-detail">Fall 2027</div>
       <div class="sidebar-affiliation">
-        Computer and Information Engineering<br>
-        The Chinese University of Hong Kong, Shenzhen
+        CUHK-Shenzhen
       </div>
       <div class="sidebar-research">
-        Physical AI · Embodied AI<br>
-        World Models · Robot Learning
+        Embodied AI, 3D Vision,<br>
+        and Multimodal Learning
       </div>
-      <div class="sidebar-tagline">Learning grounded and predictive representations for physical intelligence.</div>
+      <div class="sidebar-tagline">PhD applicant for Fall 2027</div>
 
       <div class="sidebar-meta">
         <div class="meta-item">
@@ -819,212 +887,101 @@
           <h2>About</h2>
           <div class="about-text">
             <p>I am an MPhil student in Computer and Information Engineering at <a href="https://sse.cuhk.edu.cn/en/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong, Shenzhen</a>, advised by <a href="https://fxzhong.github.io/" target="_blank" rel="noopener noreferrer">Prof. Fangxun Zhong</a> at <a href="https://sites.google.com/view/ihearlabcuhksz/" target="_blank" rel="noopener noreferrer">iHEAR Lab</a>.</p>
-            <p>My current research studies how embodied agents can convert multimodal observations and task instructions into structured, geometrically grounded, and temporally consistent representations for physical interaction. Across my recent work, I investigate three connected questions: what entity an agent should select, where an interaction should be grounded, and when a prediction becomes actionable.</p>
-            <p>Although some of my current projects use surgical scenes as challenging testbeds for occlusion, contact, uncertainty, and fine-grained spatial reasoning, my long-term goal is domain-general physical intelligence. I am particularly interested in world models and embodied foundation models that learn predictive representations of objects, geometry, motion, and action effects across tasks and robotic embodiments.</p>
-            <p>I am primarily interested in algorithmic and foundation-model research, including representation learning, action-conditioned dynamics, multimodal pretraining, 3D and temporal grounding, and reliable vision-language-action systems.</p>
-            <p>I am seeking PhD opportunities for Fall 2027 in Physical AI, Embodied AI, World Models, robot learning, and multimodal foundation models.</p>
+            <p>My research interests lie in embodied AI, multimodal learning, and 3D vision. I study how agents can ground language in visual and geometric observations, reason about interactions over time, and form structured representations for reliable decision-making.</p>
+            <p>My current work uses surgical and robotic scenes as challenging testbeds for fine-grained grounding, occlusion, uncertainty, and temporal interaction. Looking ahead, I am interested in general-purpose Physical AI, particularly world models and embodied foundation models for robot perception, prediction, and action.</p>
+            <p>I am seeking PhD opportunities for Fall 2027.</p>
           </div>
         </section>
 
         <section id="news">
           <h2>News</h2>
           <ul class="news-list">
-            <li><span class="news-date">Jul 2026:</span> Completed three first-author research manuscripts on structured embodied grounding, relation-aware 3D grounding, and budget-aware temporal anticipation.</li>
+            <li><span class="news-date">Jul 2026:</span> Three first-author research manuscripts on vision-language grounding, 3D grounding, and procedural anticipation are in progress.</li>
             <li><span class="news-date">Jul 2026:</span> Appointed as a Teaching Assistant for AIR5058: Embodied Artificial Intelligence, AY2026–2027, Term 1.</li>
             <li><span class="news-date">Dec 2025:</span> Served as a Teaching Assistant for CSC1006: Artificial Intelligence for Science and Engineering, AY2025–2026, Term 2.</li>
-            <li><span class="news-date">Aug 2025:</span> Joined Prof. Fangxun Zhong's iHEAR Lab and began MPhil research in embodied intelligence, 3D vision, multimodal learning, and robot perception.</li>
+            <li><span class="news-date">Aug 2025:</span> Joined Prof. Fangxun Zhong's iHEAR Lab and began my MPhil research in embodied intelligence, multimodal learning, and 3D vision.</li>
           </ul>
         </section>
 
-        <section id="agenda">
+        <section id="research">
           <h2>Research Interests</h2>
-          <p class="section-subtitle">I study how embodied agents can build predictive models of the physical world, ground semantic intent into geometry and interaction, and act reliably under partial observability.</p>
-          <div class="card-grid research-grid">
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">Physical World Models</div>
-              </div>
-              <div class="project-desc">Learning object-centric and action-conditioned latent states that represent geometry, motion, affordances, and uncertainty, and predict how the physical world changes under actions.</div>
-              <div class="project-tags">
-                <span class="tag">World Models</span>
-                <span class="tag">Action-Conditioned Dynamics</span>
-                <span class="tag">Physical Interaction</span>
-                <span class="tag">Representation Learning</span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">Embodied Foundation Models</div>
-              </div>
-              <div class="project-desc">Developing multimodal foundation models that connect video, 3D and RGB-D observations, language, robot state, and actions through scalable pretraining and adaptation for general-purpose robotic intelligence.</div>
-              <div class="project-tags">
-                <span class="tag">Embodied Foundation Models</span>
-                <span class="tag">Multimodal Pretraining</span>
-                <span class="tag">Robot Learning</span>
-                <span class="tag">Vision-Language-Action</span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">Grounded and Reliable Embodied Intelligence</div>
-              </div>
-              <div class="project-desc">Designing structured perception-to-action interfaces that connect semantic intent to entities, geometry, interaction points, and temporal decisions while exposing uncertainty and diagnosable intermediate states.</div>
-              <div class="project-tags">
-                <span class="tag">3D Grounding</span>
-                <span class="tag">Temporal Reasoning</span>
-                <span class="tag">Reliable VLA</span>
-                <span class="tag">Structured Interfaces</span>
-              </div>
-            </article>
-          </div>
+          <p>I am broadly interested in learning structured and predictive representations for embodied agents. My current research focuses on 3D and vision-language grounding, temporal anticipation, and reliable interfaces between perception and decision-making. I am particularly interested in extending these ideas to action-conditioned world models and multimodal foundation models for general-purpose physical interaction.</p>
+          <div class="keyword-line">Embodied AI · World Models · Multimodal Learning · 3D Grounding · Robot Learning</div>
         </section>
 
-        <section id="manuscripts">
-          <h2>Selected Research Manuscripts</h2>
-          <p class="section-subtitle">Selected first-author research manuscripts on grounded perception, interaction, and temporal decision-making for embodied intelligence.</p>
-          <div class="manuscript-grid">
-            <article class="project-card featured">
-              <div class="card-header">
-                <div class="project-title">MARS: Structured Semantic-to-Metric Grounding for Embodied Interaction</div>
-                <span class="badge process">In Process</span>
-              </div>
-              <div class="project-positioning">First Author · Research Manuscript · 2026</div>
-              <div class="project-desc">MARS introduces a typed semantic-to-metric interface that separates semantic proposals, dense spatial grounding, and geometric realization for precise embodied interaction. Surgical scenes serve as a high-precision testbed for studying replaceability, intervention, and failure diagnosis in multimodal perception-to-action systems.</div>
-              <div class="project-tags">
-                <span class="tag">Embodied Grounding</span>
-                <span class="tag">Multimodal Interfaces</span>
-                <span class="tag">3D Geometry</span>
-                <span class="tag">Reliable Physical AI</span>
+        <section id="publications">
+          <h2>Research in Progress</h2>
+          <div class="publication-list">
+            <article class="publication-item">
+              <div class="publication-year">2026</div>
+              <div>
+                <div class="publication-title">MARS — Diagnosable Vision-Language Grounding</div>
+                <div class="publication-status">Manuscript in progress, 2026.</div>
+                <div class="publication-desc">MARS develops an explicit intermediate interface between vision-language proposals and precise spatial grounding. By exposing semantic intent, proposal support, image-aligned evidence, and spatial readout as separate states, it makes proposal and localization failures independently testable. The study uses surgical image-space grounding as a precision-sensitive testbed.</div>
               </div>
             </article>
 
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">Absorb3D: Relation-Aware Candidate Matching for 3D Grounding</div>
-                <span class="badge process">In Process</span>
-              </div>
-              <div class="project-positioning">First Author · Research Manuscript · 2026</div>
-              <div class="project-desc">Absorb3D studies the recall-to-conversion gap in 3D grounding, where recovering more plausible object candidates can make correct selection harder. It develops comparative relation-aware matching to reason over competing candidates rather than scoring each proposal independently.</div>
-              <div class="project-tags">
-                <span class="tag">3D Grounding</span>
-                <span class="tag">Relational Reasoning</span>
-                <span class="tag">Candidate Matching</span>
-                <span class="tag">Embodied Perception</span>
+            <article class="publication-item">
+              <div class="publication-year">2026</div>
+              <div>
+                <div class="publication-title">Absorb3D — Recovery and Selection in 3D Grounding</div>
+                <div class="publication-status">Manuscript in progress, 2026.</div>
+                <div class="publication-desc">This work studies why recovering additional candidates can improve recall without improving final grounding accuracy. Absorb3D addresses the resulting recovery-selection gap by scoring candidates relative to the alternatives introduced alongside them.</div>
               </div>
             </article>
 
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">PACE: From Scores to Alarms for Budgeted Temporal Anticipation</div>
-                <span class="badge process">In Process</span>
-              </div>
-              <div class="project-positioning">First Author · Research Manuscript · 2026</div>
-              <div class="project-desc">PACE develops a budget-aware evaluation protocol that converts frame-level anticipation scores into matched alarms under lead-time, false-alarm, and cooldown constraints. It studies whether improved prediction actually translates into actionable early warning under deployment budgets.</div>
-              <div class="project-tags">
-                <span class="tag">Temporal Anticipation</span>
-                <span class="tag">Reliable Evaluation</span>
-                <span class="tag">Decision Protocols</span>
-                <span class="tag">Sequential Prediction</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="directions">
-          <h2>Current Directions</h2>
-          <p class="section-subtitle">Current directions that extend my existing work beyond a single application domain toward general-purpose physical intelligence.</p>
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">Predictive Physical World Models</div>
-                <span class="badge ongoing">Ongoing</span>
-              </div>
-              <div class="project-desc">I am investigating predictive belief models for partially observable interaction settings, with attention to visibility, local geometry, uncertainty, and how scene state evolves under actions. The goal is to develop principles that transfer from challenging visual observations to general robot manipulation.</div>
-              <div class="project-tags">
-                <span class="tag">Physical World Models</span>
-                <span class="tag">Partial Observability</span>
-                <span class="tag">Action-Conditioned Prediction</span>
-                <span class="tag">Robot Manipulation</span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">Generalist Embodied Foundation Models</div>
-                <span class="badge ongoing">Ongoing</span>
-              </div>
-              <div class="project-desc">I am interested in scalable multimodal pretraining across video, 3D and RGB-D observations, robot trajectories, language, and interaction data, with the goal of supporting grounding, prediction, planning, and adaptation across tabletop, bimanual, and humanoid manipulation settings.</div>
-              <div class="project-tags">
-                <span class="tag">Embodied Foundation Models</span>
-                <span class="tag">Multimodal Pretraining</span>
-                <span class="tag">Generalist Manipulation</span>
-                <span class="tag">Robot Learning</span>
+            <article class="publication-item">
+              <div class="publication-year">2026</div>
+              <div>
+                <div class="publication-title">PACE-Eval — Budgeted Procedural Anticipation</div>
+                <div class="publication-status">Manuscript in progress, 2026.</div>
+                <div class="publication-desc">PACE-Eval studies how continuous anticipation scores are converted into discrete alarms under explicit timing, matching, cooldown, and false-alarm constraints. It treats the score-to-alarm policy and its calibration as part of the evaluated anticipation system.</div>
               </div>
             </article>
           </div>
         </section>
 
         <section id="projects">
-          <h2>Selected Research Systems</h2>
-          <p class="section-subtitle">Open-source systems that support my research in embodied perception, structured state estimation, and closed-loop decision-making.</p>
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">RGB-D Spatial Grounding for Robot Perception</div>
-                <span class="badge open">Open Source</span>
-              </div>
-              <div class="project-desc">A real-time perception system that converts RGB-D observations into object-centric 3D states through segmentation, depth back-projection, tracking, and spatial risk estimation. It serves as an engineering testbed for geometry-aware embodied perception.</div>
-              <div class="project-tags">
-                <span class="tag">RGB-D Perception</span>
-                <span class="tag">3D Geometry</span>
-                <span class="tag">Robot Perception</span>
-                <span class="tag">Point Clouds</span>
-              </div>
-              <div class="project-links" aria-label="Project links">
-                <a class="project-link" href="https://github.com/checheng117/rgbd-spatial-grounding" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <h2>Selected Projects</h2>
+          <div class="simple-project-list">
+            <article class="simple-project-item">
+              <div class="simple-project-title">RGB-D Spatial Grounding</div>
+              <div class="simple-project-desc">A real-time robot perception pipeline for object-centric 3D grounding, instance segmentation, depth back-projection, tracking, and spatial distance estimation from RGB-D observations.</div>
+              <div class="inline-links">
+                <a class="inline-link" href="https://github.com/checheng117/rgbd-spatial-grounding" target="_blank" rel="noopener noreferrer">Code</a>
               </div>
             </article>
 
-            <article class="project-card">
-              <div class="card-header">
-                <div class="project-title">EmbodiedSceneAgent</div>
-                <span class="badge open">Open Source</span>
-              </div>
-              <div class="project-desc">A closed-loop embodied agent prototype with structured scene memory, planning, verification, and replanning under changing observations. The system explores how explicit state representations and failure checks can support more reliable long-horizon behavior.</div>
-              <div class="project-tags">
-                <span class="tag">Embodied Agents</span>
-                <span class="tag">Scene Memory</span>
-                <span class="tag">Planning</span>
-                <span class="tag">Verification</span>
-              </div>
-              <div class="project-links" aria-label="Project links">
-                <a class="project-link" href="https://github.com/checheng117/EmbodiedSceneAgent" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <article class="simple-project-item">
+              <div class="simple-project-title">EmbodiedSceneAgent</div>
+              <div class="simple-project-desc">A prototype embodied agent with structured scene memory, planning, execution verification, and replanning under changing observations.</div>
+              <div class="inline-links">
+                <a class="inline-link" href="https://github.com/checheng117/EmbodiedSceneAgent" target="_blank" rel="noopener noreferrer">Code</a>
               </div>
             </article>
           </div>
         </section>
 
-        <section id="experience">
-          <h2>Experience &amp; Teaching</h2>
-          <h3 class="subsection-title">Teaching Assistant</h3>
+        <section id="teaching">
+          <h2>Teaching &amp; Experience</h2>
+          <h3 class="subsection-title">Teaching</h3>
           <div class="list-item">
-            <div class="list-item-title">AIR5058: Embodied Artificial Intelligence</div>
-            <div class="list-item-meta">The Chinese University of Hong Kong, Shenzhen · AY2026–2027, Term 1</div>
+            <div class="list-item-title">Teaching Assistant</div>
+            <div class="list-item-meta">AIR5058: Embodied Artificial Intelligence</div>
+            <div class="list-item-desc">The Chinese University of Hong Kong, Shenzhen · AY2026–2027, Term 1</div>
           </div>
           <div class="list-item">
-            <div class="list-item-title">CSC1006: Artificial Intelligence for Science and Engineering</div>
-            <div class="list-item-meta">The Chinese University of Hong Kong, Shenzhen · AY2025–2026, Term 2</div>
+            <div class="list-item-title">Teaching Assistant</div>
+            <div class="list-item-meta">CSC1006: Artificial Intelligence for Science and Engineering</div>
+            <div class="list-item-desc">The Chinese University of Hong Kong, Shenzhen · AY2025–2026, Term 2</div>
           </div>
 
-          <h3 class="subsection-title">Industry</h3>
+          <h3 class="subsection-title">Other Experience</h3>
           <div class="list-item logo-item">
             <img src="assets/logos/zto.png" alt="ZTO Express logo" class="entity-logo">
             <div>
               <div class="list-item-title">ZTO Express Co., Ltd.</div>
-              <div class="list-item-meta">Project-Based Intern · 2023.06–2023.09</div>
-              <div class="list-item-desc">Project-based internship on operational data analysis and deployment support. The project outcome was deployed at ZTO's Chongqing sorting center with reported efficiency improvements.</div>
+              <div class="list-item-meta">Project-Based Intern · Jun 2023 – Sep 2023</div>
             </div>
           </div>
         </section>
