@@ -418,8 +418,29 @@
     }
 
     .simple-project-item {
-      grid-template-columns: 1fr;
-      gap: 8px;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .simple-project-teaser {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--subtle);
+    }
+
+    .simple-project-teaser img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .simple-project-copy {
+      min-width: 0;
     }
 
     .publication-year {
@@ -822,6 +843,15 @@
         grid-template-columns: 1fr;
         gap: 4px;
       }
+
+      .simple-project-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .simple-project-teaser {
+        width: min(100%, 400px);
+      }
     }
   </style>
 </head>
@@ -937,18 +967,38 @@
           <h2>Selected Projects</h2>
           <div class="simple-project-list">
             <article class="simple-project-item">
-              <div class="simple-project-title">RGB-D Spatial Grounding</div>
-              <div class="simple-project-desc">A real-time robot perception pipeline for object-centric 3D grounding, instance segmentation, depth back-projection, tracking, and spatial distance estimation from RGB-D observations.</div>
-              <div class="inline-links">
-                <a class="inline-link" href="https://github.com/checheng117/rgbd-spatial-grounding" target="_blank" rel="noopener noreferrer">Code</a>
+              <figure class="simple-project-teaser">
+                <img src="assets/projects/rgbd-spatial-grounding.gif" alt="RGB-D spatial grounding pipeline teaser" loading="lazy">
+              </figure>
+              <div class="simple-project-copy">
+                <div class="simple-project-title">RGB-D Spatial Grounding</div>
+                <div class="simple-project-desc">A real-time robot perception pipeline for object-centric 3D grounding, instance segmentation, depth back-projection, tracking, and spatial distance estimation from RGB-D observations.</div>
+                <div class="inline-links">
+                  <a class="inline-link" href="https://github.com/checheng117/rgbd-spatial-grounding" target="_blank" rel="noopener noreferrer">Code</a>
+                </div>
               </div>
             </article>
 
             <article class="simple-project-item">
-              <div class="simple-project-title">EmbodiedSceneAgent</div>
-              <div class="simple-project-desc">A prototype embodied agent with structured scene memory, planning, execution verification, and replanning under changing observations.</div>
-              <div class="inline-links">
-                <a class="inline-link" href="https://github.com/checheng117/EmbodiedSceneAgent" target="_blank" rel="noopener noreferrer">Code</a>
+              <figure class="simple-project-teaser">
+                <img src="assets/projects/embodied-senseagent-pipeline.gif" alt="Animated EmbodiedSceneAgent pipeline teaser highlighting the re-consideration planner loop" loading="lazy">
+              </figure>
+              <div class="simple-project-copy">
+                <div class="simple-project-title">EmbodiedSceneAgent</div>
+                <div class="simple-project-desc">A prototype embodied agent with structured scene memory, planning, execution verification, and replanning under changing observations.</div>
+                <div class="inline-links">
+                  <a class="inline-link" href="https://github.com/checheng117/EmbodiedSceneAgent" target="_blank" rel="noopener noreferrer">Code</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="simple-project-item">
+              <figure class="simple-project-teaser">
+                <img src="assets/projects/safety-distance-recognition.gif" alt="Safety-distance recognition during robotic tool–tissue interaction" loading="lazy">
+              </figure>
+              <div class="simple-project-copy">
+                <div class="simple-project-title">Safety distance recognition upon tool-tissue interaction in robotic minimally invasive surgery</div>
+                <div class="simple-project-desc">A study of safety-distance recognition during tool–tissue interaction in robotic minimally invasive surgery.</div>
               </div>
             </article>
           </div>
@@ -1013,7 +1063,7 @@
       </main>
 
       <footer>
-        <p>&copy; <span id="year">2026</span> Che Cheng. All rights reserved. Last updated: July 2026.</p>
+        <p>&copy; <span id="year">2026</span> Che Cheng. All rights reserved. Last updated: August 2026.</p>
       </footer>
     </div>
   </div>
